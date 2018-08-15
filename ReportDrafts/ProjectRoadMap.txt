@@ -1,0 +1,57 @@
+Comparative analysis of ML algorithms.
+
+Abstract (1)
+This project attempts a comparative analysis of different induvidual machine learning algorithms on loan credit data made available on kaggle for a credit scoring competition. It differs from existing studies
+as it attempts different techniques of improvment on the algorithms to identify which techniques works for which algorithm and give a possible explaination why they work. In the end it gives an idea of applying deep learning technique 
+of CNN for credit scoring. 
+ 
+Introduction:  (2)
+1. Credit scoring: What, Significance, how
+2. Research done: existing research, research gap
+3. How the paper is organised
+
+Consumer credit lending is an integral part of any economy. For example, in UK, amounts outstanding of total net consumer credit lending to induviduals (in sterling millions) is 213242, as of 30 Jun 18. This has increased almost 37% in just 5 years[1]. With a monthly growth rate going as high as 10.9 percent[2]. The figures above exclude any student loan companies data, which would make the stats go even higher. This shows that consumer credit is a huge market where the deciding factor for a company's success is to provide swift loans to its new/existing clients.
+
+It makes it mparative for these financial institutions to analyse loan application thouroughly and accurately predict the clients behavior with respect to loan repayment. Statistics, machine learning and domain expertise are the essential ingredients of this process. They are used at various stages of the decision pipline. Credit scoring is one of those stages in which previous data about loans is used to calculate/infer a score for a loan applicant. This score tells how likely is that the applicant would be able to repay the loan. It can be a binary classifier differentiating bad loans from the good ones or a certain numerical value within a range showing the confidence of the decision.
+
+
+ This basic data set is used to determine a baseline result for the models. The evaluation metric used is ROC-AUC which is the metric used in the competition. After determining the baseline, data is fine-tunned and the changes in the learning models are observed. After this a third round of fine tuning is performed to further support the conclusions about each model's response to respective tuning.
+
+
+Lit review: (2)
+Papers read and what they have done.
+
+My Approach: (10)
+How classification scorecards work
+Evaluation metric used
+Classifiers analysed : LR, LinearSVC, LGBM, CNN
+
+Experimental Setup: (10)
+1. Data Set
+The data used in this study is from a loan providing company Home Credit which is already using ML algorithms for this purpose but wanted to see if anyone could to a better job. The data set contains application data that has 121 feature/feilds in total that have been fully or partially filled by the applicants. Out of these 121, 16 are categorical features and the rest are numerical. Considerable amount of the fields were optional and some fields have been incorrectly filled so we have alot of irrelevent and noisy data to deal with. In this project, I first explore the data, find identify missing fields, anomalies and outliers. After pre-processing and cleaning the data, the next step is to extract relevant fields, and judge their usefullnes for learning models.
+
+2. Data cleaning : EDA and preprocessing
+	Distributions of different features.
+	Correlation maps.	
+	Outlier and anomaly detection and handling.
+3. Data subsets/versions
+	Only application data file:
+		1 Complete with missing rows ommitted.
+		2 Complete with missing data imputed.
+		3 Numerical only with missing rows ommitted.
+		4 Numerical only with missing rows imputed.
+
+	Including information from other files.(Applicant history)
+		1 Aggregated columns.
+		2 Aggregated columns with feature engineering.
+
+
+Results: Benchmark results obtained (1)
+Further tuning of dataset (3)
+Observed improvements (1)
+
+CNN application experiment (4)
+
+Conclusion (2)
+
+	

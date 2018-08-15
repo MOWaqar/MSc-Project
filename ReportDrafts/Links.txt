@@ -1,0 +1,16 @@
+Links:
+1. Consumer credit:
+	Bank of England: 
+	1. Amounts Outstanding of total sterling net consumer credit linding to induviduals (in sterling millions)	[https://www.bankofengland.co.uk/boeapps/database/fromshowcolumns.asp?Travel=NIxAZxSUx&FromSeries=1&ToSeries=50&DAT=RNG&FD=1&FM=Jan&FY=2010&TD=11&TM=May&TY=2025&FNY=Y&CSVF=TT&html.x=66&html.y=26&SeriesCodes=LPQBI2O&UsingCodes=Y&Filter=N&title=LPQBI2O&VPD=Y]
+	
+	2. Monthly growth rate of total sterling net consumer credit lending to induviduals.	[https://www.bankofengland.co.uk/boeapps/database/fromshowcolumns.asp?Travel=NIxSUx&FromSeries=1&ToSeries=50&DAT=RNG&FD=1&FM=Aug&FY=2008&TD=1&TM=Aug&TY=2018&FNY=&CSVF=TT&html.x=95&html.y=41&C=NZU&C=O1P&Filter=N]
+	
+	3. Traditional Credit scoring.	http://uk.businessinsider.com/heres-how-technology-is-changing-the-consumer-credit-industry-2018-5
+	
+	4. Durand, D., 1941. Risk Elements in Consumer Instalment Financing. NBER Books.
+	
+	5. Hand, David J., and William E. Henley. "Statistical classification methods in consumer credit scoring: a review." Journal of the Royal Statistical Society: Series A (Statistics in Society) 160.3 (1997): 523-541.
+	
+	6. Crook, J. N., Edelman, D. B., & Thomas, L. C. (2007). Recent developments in consumer credit risk assessment. European Journal of Operational Research, 183, 1447-1465.
+	
+	7. Hue Sullivan, Sessi Tokpavi, (2017). Machine Learning for Credit Scoring: Improving Logistic Regression with Non Linear Decision Tree Effects
