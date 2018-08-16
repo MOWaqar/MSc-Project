@@ -14,3 +14,5 @@ Links:
 	6. Crook, J. N., Edelman, D. B., & Thomas, L. C. (2007). Recent developments in consumer credit risk assessment. European Journal of Operational Research, 183, 1447-1465.
 	
 	7. Hue Sullivan, Sessi Tokpavi, (2017). Machine Learning for Credit Scoring: Improving Logistic Regression with Non Linear Decision Tree Effects
+	
+	8. Guolin Ke, Qi Meng, Thomas Finley, Taifeng Wang, Wei Chen, Weidong Ma, Qiwei Ye, Tie-Yan Liu (2017) LightGBM: A Highly Efficient Gradient Boosting Decision Tree
