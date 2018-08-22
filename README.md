@@ -2,19 +2,12 @@
 # MSc Project: Comparative Analysis of Machine Learning Algorithms on Credit Scoring Data
 
 ## Acknowledgement!
-
-First, I would like to thank my thesis advisor Professor Steve Uhlig of the School of Electronic Engineering and Computer Science at Queen Mary University of London. He has allowed this paper to be my own work but steered me in the right the direction whenever he thought I needed it.
-I would also like to thank the Kaggle community in general. The level of expertise, guidance and help that can be found on that forum is unparalleled. I have benefited immensely from the discussions and tutorials which helped me implement my code. 
-I would also like to acknowledge Home Credit for sharing their data which has made it possible for me to do an analysis. 
-I would also like to acknowledge Professor Pasquale Malacaria of the School of Electronic Engineering and Computer Science at Queen Mary University as the second examiner of this thesis, and I am gratefully indebted for his time.
-Finally, I must express my very profound gratitude to my parents and to my spouse, for providing me with unfailing support and continuous encouragement throughout my year of study and through the process of researching and writing this thesis. This accomplishment would not have been possible without them. Thank you.
-
-M O Waqar
+Code snippets and EDA ideas are taken from various publically shared kernels on kaggle community.
 
 
 ## Documentation
-Please find the report for this project [here]
-https://github.com/MOWaqar/MSc-Project/blob/master/ReportDrafts/Project%20Report.docx
+Please find the report for this project here:
+MSc-Project/ReportDrafts/Project Report.pdf
 
 ## Prerequisites
 Following tools must be installed.
