@@ -16,3 +16,11 @@ Links:
 	7. Hue Sullivan, Sessi Tokpavi, (2017). Machine Learning for Credit Scoring: Improving Logistic Regression with Non Linear Decision Tree Effects
 	
 	8. Guolin Ke, Qi Meng, Thomas Finley, Taifeng Wang, Wei Chen, Weidong Ma, Qiwei Ye, Tie-Yan Liu (2017) LightGBM: A Highly Efficient Gradient Boosting Decision Tree
+	
+	9. Pearsons Correlation. http://www.statstutor.ac.uk/resources/uploaded/pearsons.pdf
+	
+	10. KDE Plot. https://en.wikipedia.org/wiki/Kernel_density_estimation
+	
+	11. Sklearn http://scikit-learn.org/stable/
+	
+	12. Pandas https://pandas.pydata.org/
