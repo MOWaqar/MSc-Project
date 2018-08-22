@@ -1,6 +1,51 @@
-# This script runs all three classifiers on the 17 data sets computed in preprocessing stage
+"""
+AUTHOR: M O WAQAR 20/08/2018
 
-#Import Packages
+This script runs three classifiers 
+1. Logistic Regression
+2. SGD(LinearSVC)
+3. LightGBM
+
+They are run on the 17 datasats prepared with DataPreperation.py script.
+
+****NOTE: If you have not executed 'DataPreperation.py' run that first and wait for it to finish before running this script.
+
+********OUTPUT of this script is in the console in following format:
+
+    LR Results:
+
+Classifier could not run on the data set. Put X instead of score.
+Classifier could not run on the data set. Put X instead of score.
+Classifier could not run on the data set. Put X instead of score.
+File: DataSetVersion2_a.csv,  AUC score : 0.607
+File: DataSetVersion2_b.csv,  AUC score : 0.599
+.
+.
+.
+Logistic Regression - done in 499s
+
+LinearSVC Results:
+
+Classifier could not run on the data set. Put X instead of score.
+Classifier could not run on the data set. Put X instead of score.
+Classifier could not run on the data set. Put X instead of score.
+File: DataSetVersion2_a.csv,  AUC score : 0.545
+File: DataSetVersion2_b.csv,  AUC score : 0.534
+.
+.
+.
+Linear SVC - done in 12653s
+
+LightGBM Results:
+
+File: DataSetVersion1_a.csv,  AUC score : 0.750
+File: DataSetVersion1_b.csv,  AUC score : 0.757
+File: DataSetVersion1_c.csv,  AUC score : 0.758
+.
+.
+.
+"""
+
 #Import Packages
 import time
 from contextlib import contextmanager
@@ -22,27 +67,31 @@ from sklearn.linear_model import LogisticRegression as LR
 #SGD Classifier
 from sklearn.linear_model import SGDClassifier
 
-#LGBM
+#LGBM Classifier
 from lightgbm import LGBMClassifier
 
-#to measure ROC AUC performance
+#ROC AUC performance metric
 from sklearn.metrics import roc_auc_score
-
+#Cross-Valdiation with stratified sampling
 from sklearn.model_selection import StratifiedKFold
 
+# Print time logs in console
 @contextmanager
 def timer(title):
     t0 = time.time()
     yield
     print("{} - done in {:.0f}s".format(title, time.time() - t0))
     
-#Read file from output data folder path.    
+#Read file from output data folder path. 
+##Inputs: file name and folder path to location of the file
+##Returns: data frame with features and labels column
 def setup_input(filename, dataFolder):
+    #Check if folder path is correct. If not throw an error stating so.
     if(not os.path.exists(dataFolder + os.sep + filename)):
         print("Input file not found. Make sure files and their path exist. Try running DataPreperation Script first.")
         raise NotADirectoryError
     
-    # Read Training data
+    # Read csv file, remove unecessary columns 'Unnamed: 0' and 'SK_ID_CURR' and extract and save labels column seperately
     df = pd.read_csv(dataFolder + os.sep + filename)
     labels = df.pop('TARGET')
     if('Unnamed: 0' in df):
@@ -53,9 +102,10 @@ def setup_input(filename, dataFolder):
     return df, labels
 
 
-#Logistic Regression function
+#Logistic Regression function with 10 fold stratified CV 
+#Inputs: Data frame of features and labels column
+#Outputs: Mean ROC-AUC score
 def logistic_regression(df, labels):
-    # Run classifier with cross-validation
     cv = StratifiedKFold(n_splits=10)
     foldScores = []
 
@@ -68,7 +118,9 @@ def logistic_regression(df, labels):
         
     return np.mean(foldScores)
 
-#Linear SVC classifier with SGD
+#Linear SVC classifier with SGD with 10 fold stratified CV 
+#Inputs: Data frame of features and labels column
+#Outputs:ROC-AUC score
 def svclassifier(df, labels):
     # Run classifier with 10 fold cross-validation
     cv = StratifiedKFold(n_splits=10)
@@ -83,7 +135,9 @@ def svclassifier(df, labels):
     
     return roc_auc_score(labels, probas_)
 
-#Funtion that performs 10 fold cv on input data and returns AUC score
+#Linear LGBM classifier with 10 fold stratified CV 
+#Inputs: Data frame of features and labels column
+#Outputs:ROC-AUC score
 def LGBM_Classifier(df, labels):
     probas_ = np.zeros(df.shape[0])
     # Run classifier with cross-validation
@@ -98,15 +152,20 @@ def LGBM_Classifier(df, labels):
 
     return roc_auc_score(labels, probas_)
 
+
+##Main function executed when the script is called.
 def main():
+    #Initialize input and output folder paths
     input_folder, output_folder = utils.Initialize_Folder_Paths()
     
+    #List of input files
     file_names = ['DataSetVersion1_a.csv', 'DataSetVersion1_b.csv', 'DataSetVersion1_c.csv', 'DataSetVersion2_a.csv',
               'DataSetVersion2_b.csv', 'DataSetVersion2_c.csv', 'DataSetVersion3_a.csv', 'DataSetVersion3_b.csv',
              'DataSetVersion3_c.csv', 'DataSetVersion4_a.csv', 'DataSetVersion4_b.csv', 'DataSetVersion4_c.csv',
              'DataSetVersion5_a.csv', 'DataSetVersion5_b.csv', 'DataSetVersion5_c.csv', 'DataSetVersion6_a.csv',
              'DataSetVersion6_b.csv']
     
+    #Run LR with time log and print ROC-AUC scores for each file
     with timer("Logistic Regression"):
         print('\nLR Results:\n')
         for filename in file_names:
@@ -119,7 +178,8 @@ def main():
             finally:
                 del input_df,labels
                 gc.collect()
-                
+    
+    #Run SGD(LinearSVC) with time log and print ROC-AUC scores for each file      
     with timer("Linear SVC"):
         print('\nLinearSVC Results:\n')
         for filename in file_names:
@@ -133,6 +193,7 @@ def main():
                 del input_df,labels
                 gc.collect()
                 
+    #Run LGBM with time log and print ROC-AUC scores for each file            
     with timer("LightGBM"):
         print('\nLightGBM Results:\n')
         for filename in file_names:

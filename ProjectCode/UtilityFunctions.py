@@ -1,4 +1,12 @@
-# Utility Functions used by other scripts are written in this file
+"""
+AUTHOR: M O WAQAR 20/08/2018
+
+Utility Functions used by other scripts are written in this file
+It contains code snippets that are taken from different kernel publically shared on Kaggle competition
+
+"""
+
+ 
 
 #Import Packages
 #memory management
@@ -387,7 +395,7 @@ def rf_selector(input_df, labels, drop_ratio = 0.5, verbose=True):
     return rf_support
 
 # Function that runs feature 5 selection tests from above and returns a data frame of selected features
-def select_features(input_df, labels, min_votes = 3, drop_ratio = 0.5):
+def select_features(input_df, labels, drop_ratio = 0.5):
     
     df = input_df.copy()
     

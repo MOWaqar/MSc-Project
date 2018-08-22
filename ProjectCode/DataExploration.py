@@ -1,5 +1,12 @@
-# This script executed exploratory data analysis(EDA) and prepares data version for the project
-# The output of this script is saved in the Output Folder along with some information printed out in console.
+"""
+AUTHOR: M O WAQAR 20/08/2018
+
+This script executed exploratory data analysis(EDA) and prepares data version for the project
+The output of this script is saved in the Output Folder along with some information printed out in console.
+
+
+
+"""
 
 #Import packages
 import UtilityFunctions as utils
