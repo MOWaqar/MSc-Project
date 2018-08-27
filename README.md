@@ -2,6 +2,7 @@
 # MSc Project: Comparative Analysis of Machine Learning Algorithms on Credit Scoring Data
 
 ## Acknowledgement!
+This project is based on data provided by Home Credit Group for a Credit Default Risk competition on Kaggle.com.
 Code snippets and EDA ideas are taken from various publically shared kernels on kaggle community.
 
 
