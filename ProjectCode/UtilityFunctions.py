@@ -426,7 +426,7 @@ def take_sample(df, labels, stratified = True):
     df['TARGET'] = labels
     num_samples = df.loc[df.TARGET==1].shape[0]
     if (stratified):
-        sampling_ratio = num_samples / df.shape[0]
+        sampling_ratio = (num_samples * 2) / df.shape[0]
         sample1 = df.loc[df.TARGET==1].sample(frac=sampling_ratio, replace=False)
         print('label 1 sample size:', str(sample1.shape[0]))
         sample0 = df.loc[df.TARGET==0].sample(frac=sampling_ratio, replace=False)

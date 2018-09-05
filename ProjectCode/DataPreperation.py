@@ -52,6 +52,7 @@ def main():
    
     #Replace any outliers. The function is written in Utlilities file with outliers already identified
     original_df = utils.replace_outliers(original_df)
+
     
     #Remove 'SK_ID_CURR' as it is irrelevent
     original_df = original_df.drop(columns = 'SK_ID_CURR')
@@ -59,7 +60,7 @@ def main():
     #Get list of features along with their types for future use.
     categorical_feats, floatingPoint_feats, bool_feats, integer_feats = utils.identify_feature_types(original_df,
                                                                                                 ['TARGET', 'SK_ID_CURR', 'Unnamed :0'])
-    with timer("Prepare File version 1 and its vairants"):
+    """with timer("Prepare File version 1 and its vairants"):
         #Version one with null values included and no categorical features.
         # Copy Original data
         input_df = original_df.copy()
@@ -139,12 +140,11 @@ def main():
         input_df.to_csv(output_folder + '\\DataSetVersion2_c.csv')
         del input_df, WoE_df
         gc.collect()
-        
+    """    
     with timer("Process File version 3 and its varients"):
         #Version with null values imputed and no categorical features.
         input_df = original_df.copy()
-        #In-Built function to drop rows with NaN values
-        input_df = input_df.dropna()
+
         # Drop Categorical and boolean features
         input_df = utils.drop_features(input_df, categorical_feats + bool_feats)
         #Impute missing values
@@ -153,7 +153,7 @@ def main():
         input_df.to_csv(output_folder + '\\DataSetVersion3_a.csv')
         del input_df
         gc.collect()
-        
+        """
         #Nominal variables imputed by mode values and Numerical variables imputed by mean
         # Categoriacal values OHE
         input_df = original_df.copy()
@@ -240,7 +240,7 @@ def main():
         
         input_df = utils.drop_features(input_df, categorical_feats)
         
-        feature_df = utils.select_features(input_df, labels, min_votes = 4, drop_ratio = 0.5)
+        feature_df = utils.select_features(input_df, labels, drop_ratio = 0.5)
         
         selected_features = feature_df[feature_df.Total >= 3].Feature.values
         
@@ -301,7 +301,7 @@ def main():
         print(('Version 5c file contains {} feature and {} data instances.\n').format(input_df.shape[1], input_df.shape[0]))
         del input_df
         gc.collect()
-        
+     """   
     with timer("Process File version 6 and its varients"):
         # Balanced sample with categorical feature OHE
         input_df = original_df.copy()
